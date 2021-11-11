@@ -25,6 +25,7 @@ jobs:
           echo "*** Hello! ***"
           pwd
           ls -la
+          ls -la /home/runner/work
 
       - name: Run private action
         uses: ./.github/actions/gh-act1/
@@ -40,4 +41,4 @@ jobs:
           echo "*** Hello! ***"
           pwd
           ls -la
-
+          ls -la /home/runner/work
