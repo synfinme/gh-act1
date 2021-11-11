@@ -1,0 +1,20 @@
+name: Manual Run
+on:
+  workflow_dispatch:
+    inputs:
+      cmdline:
+        description: Commandline string for private action
+        required: true
+        default: pwd
+jobs:
+  execute_cmdline_job:
+    runs-on: ubuntu-latest
+    name: A job to run private action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run private action
+        uses: ./.github/actions/gh-act1/
+        id: run_priv_action
+        with:
+          cmdline: ${{ github.event.inputs.cmdline }}
