@@ -19,6 +19,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: List homedir before
+        run: |
+          echo "*** Hello! ***"
+          pwd
+          ls -la
+
       - name: Run private action
         uses: ./.github/actions/gh-act1/
         id: run_priv_action
@@ -26,3 +33,11 @@ jobs:
           cmdline: ${{ github.event.inputs.cmdline }}
           arg0: ${{ github.event.inputs.arg0 }}
           arg1: ${{ github.event.inputs.arg1 }}
+
+      - name: List homedir after
+        if: always()
+        run: |
+          echo "*** Hello! ***"
+          pwd
+          ls -la
+

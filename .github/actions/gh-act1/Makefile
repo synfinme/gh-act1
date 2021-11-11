@@ -14,4 +14,4 @@ push	: build
 	docker push ${IMAGE}
 
 run	: build
-	docker run --rm ${IMAGE}
+	docker run --rm ${IMAGE} "/bin/ls" "/github/workspace"
