@@ -2,11 +2,19 @@ name: gh-act1
 description: gh-act1 discovery
 inputs:
   cmdline:
-    description: Commandline args for the utility
+    description: Shell Command for the utility
     required: true
-    default: -h
+    default: pwd
+  arg0:
+    required: false
+    default: ''
+  arg1:
+    required: false
+    default: ''
 runs:
   using: docker
   image: Dockerfile
   args:
     - ${{ inputs.cmdline }}
+    - ${{ inputs.arg0 }}
+    - ${{ inputs.arg1 }}
